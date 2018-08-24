@@ -1,0 +1,33 @@
+{
+  "name": "@generative-music/visualizer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/generative-music/visualizer.git"
+  },
+  "author": "Alex Bainter <alexbainter+github@gmail.com> (http://alexbainter.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/generative-music/visualizer/issues"
+  },
+  "homepage": "https://github.com/generative-music/visualizer#readme",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-metalex9": "^0.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "save-svg-as-png": "^1.4.6",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "nice-color-palettes": "^2.0.0",
+    "svg.js": "^2.6.5"
+  }
+}
