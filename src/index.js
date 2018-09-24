@@ -5,7 +5,7 @@ import saveSvgAsPng from 'save-svg-as-png';
 const DIV_ID = 'drawing';
 const TWO = 2;
 const STROKE_WIDTH_DIVISOR = 100;
-const LENGTH = 500;
+const LENGTH = 800;
 const STROKE_WIDTH = LENGTH / STROKE_WIDTH_DIVISOR;
 const DIAGONAL =
   Math.ceil(Math.sqrt(TWO * LENGTH * LENGTH)) + TWO * STROKE_WIDTH;
