@@ -78,7 +78,7 @@ const trianglePaths = corners.reduce((allTriangles, coordinate) => {
 const generateImage = () => {
   const selectedAnchors = lineAnchors
     .map((coordinate, index) => ({ coordinate, index }))
-    .filter(() => Math.random() < 0.25);
+    .filter(() => Math.random() < 0.5);
 
   const anchorIndices = selectedAnchors.map(({ index }) => index);
 
@@ -112,24 +112,56 @@ const generateImage = () => {
   ];
 };
 
-const animate = () => {
+const animationTimeMs = 15000;
+let startedAt;
+const animate = (starting = false, timeMS = Infinity) => {
+  if (starting) {
+    startedAt = Date.now();
+  }
+  const ending = Date.now() - startedAt >= timeMS - animationTimeMs;
   let animationStart;
-  const animationTimeMs = 10000;
   const [anchors, shapeGroups] = generateImage();
   const drawLines = Math.random() < 0.5;
 
   const rotate =
-    (anchors.length === 0 || !drawLines) && shapeGroups.length === 0;
+    (anchors.length === 0 || !drawLines) &&
+    (shapeGroups.length === 0 ||
+      (shapeGroups.length === 1 &&
+        shapeGroups[0].color.every(value => value === 0)));
 
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  if (rotate) {
+  if (starting || ending) {
+    const draw = () => {
+      const now = Date.now();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const opacity = starting
+        ? Math.min((now - animationStart) / animationTimeMs, 1)
+        : Math.max(1 - (now - animationStart) / animationTimeMs, 0);
+      ctx.lineCap = 'butt';
+      ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+      ctx.strokeRect(leftX, topY, squareLength, squareLength);
+      if ((starting && opacity < 1) || (ending && opacity > 0)) {
+        window.requestAnimationFrame(() => {
+          draw();
+        });
+      } else if (starting) {
+        window.requestAnimationFrame(() => {
+          animate(false, timeMS);
+        });
+      }
+    };
+    window.requestAnimationFrame(() => {
+      animationStart = Date.now();
+      draw();
+    });
+  } else if (rotate) {
     const totalRotation = Math.random() < 0.5 ? 90 : -90;
     const draw = () => {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.translate(midX, midY);
       const rotationPct = Math.min(
-        (Date.now() - animationStart) / animationTimeMs,
+        (Date.now() - animationStart) / (animationTimeMs * 2),
         1
       );
       ctx.rotate(rotationPct * totalRotation * (Math.PI / 180));
@@ -147,7 +179,7 @@ const animate = () => {
           draw();
         });
       } else {
-        animate();
+        animate(false, timeMS);
       }
     };
     window.requestAnimationFrame(() => {
@@ -200,7 +232,7 @@ const animate = () => {
           draw(false);
         });
       } else {
-        animate();
+        animate(false, timeMS);
       }
     };
 
@@ -211,4 +243,4 @@ const animate = () => {
   }
 };
 
-animate();
+window.startViz = timeMS => animate(true, timeMS);
