@@ -1,4 +1,5 @@
 {
+  "extends": "plugin:react/recommended",
   "env": {
     "node": false,
     "browser": true
