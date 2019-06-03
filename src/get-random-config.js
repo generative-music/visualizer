@@ -46,10 +46,12 @@ const getRandomConfig = () => {
           triangles.push(triangleIndex);
         }
       }
-      shapes.push({ triangles, color: getRandomColor() });
+      if (triangles.length > 0) {
+        shapes.push({ triangles, color: getRandomColor() });
+      }
     });
   }
-  return { anchors, shapes, drawLines: Math.random() < 0.5 };
+  return { anchors: Math.random() < 0.5 ? anchors : [], shapes };
 };
 
 export default getRandomConfig;
