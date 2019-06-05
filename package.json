@@ -40,7 +40,9 @@
   "dependencies": {
     "color-convert": "^2.0.0",
     "nice-color-palettes": "^2.0.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.7.2"
+  },
+  "optionalDependencies": {
     "react": "^16.8.6"
   }
 }
