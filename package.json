@@ -34,7 +34,6 @@
     "eslint": "^5.16.0",
     "eslint-config-metalex9": "^0.3.0",
     "eslint-plugin-react": "^7.13.0",
-    "react-dom": "^16.8.6",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0"
   },
