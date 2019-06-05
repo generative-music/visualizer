@@ -1,13 +1,13 @@
 'use strict';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
-  mode: 'development',
-  devtool: 'sourcemap',
-  entry: './src/index.jsx',
+  mode: 'production',
+  output: {
+    library: 'Visualizer',
+    libraryTarget: 'commonjs2',
+  },
+  entry: './src/index.js',
   module: {
     rules: [{ test: /\.jsx$/, loader: 'babel-loader' }],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './index.template.html' })],
 };

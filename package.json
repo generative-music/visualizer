@@ -1,12 +1,18 @@
 {
   "name": "@generative-music/visualizer",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple canvas visualization used for Generative.fm",
+  "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "build": "webpack-cli",
+    "preversion": "npm run build",
+    "postversion": "git push && git push --tags"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/generative-music/visualizer.git"
@@ -22,20 +28,17 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^5.4.0",
+    "eslint": "^5.16.0",
     "eslint-config-metalex9": "^0.3.0",
     "eslint-plugin-react": "^7.13.0",
-    "html-webpack-plugin": "^3.2.0",
     "react-dom": "^16.8.6",
     "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-cli": "^3.1.0"
   },
   "dependencies": {
     "color-convert": "^2.0.0",
     "nice-color-palettes": "^2.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "whammy": "0.0.1"
+    "react": "^16.8.6"
   }
 }
