@@ -1,10 +1,9 @@
-function* makeShapeFadeAnimator({ animationTimeSeconds, shapes, anchors }) {
-  const animationTimeMs = (animationTimeSeconds * 1000) / 2;
-  const fadeInStartTime = Date.now();
+function* makeShapeFadeAnimator({ duration, now, shapes, anchors }) {
+  const fadeInStartTime = now();
   for (
     let opacity = 0;
     opacity < 1;
-    opacity = Math.min((Date.now() - fadeInStartTime) / animationTimeMs, 1)
+    opacity = Math.min((now() - fadeInStartTime) / duration / 2, 1)
   ) {
     yield {
       shapes,
@@ -14,11 +13,11 @@ function* makeShapeFadeAnimator({ animationTimeSeconds, shapes, anchors }) {
       rotation: 0,
     };
   }
-  const fadeOutStartTime = Date.now();
+  const fadeOutStartTime = now();
   for (
     let opacity = 1;
     opacity > 0;
-    opacity = Math.max(1 - (Date.now() - fadeOutStartTime) / animationTimeMs, 0)
+    opacity = Math.max(1 - (now() - fadeOutStartTime) / duration / 2, 0)
   ) {
     yield {
       shapes,

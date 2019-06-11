@@ -1,10 +1,9 @@
-function* makeOutlineFadeOutAnimator({ animationTimeSeconds }) {
-  const animationTimeMs = animationTimeSeconds * 1000;
-  const startTime = Date.now();
+function* makeOutlineFadeOutAnimator({ duration, now }) {
+  const startTime = now();
   for (
     let outlineOpacity = 1;
     outlineOpacity > 0;
-    outlineOpacity = Math.max(1 - (Date.now() - startTime) / animationTimeMs, 0)
+    outlineOpacity = Math.max(1 - (now() - startTime) / duration, 0)
   ) {
     yield {
       outlineOpacity,

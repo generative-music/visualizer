@@ -5,10 +5,13 @@ import makeRotationAnimator from './make-rotation-animator';
 import makeOutlineFadeOutAnimator from './make-outline-fade-out-animator';
 import concatanimators from './concat-animators';
 
-function* makeFixedDurationAnimation({ durationSeconds, coreAnimationCount }) {
+function* makeFixedDurationAnimation({ duration, now, coreAnimationCount }) {
   // core animations are twice as long as the outline fade in/out
-  const animationTimeSeconds = durationSeconds / (coreAnimationCount * 2 + 2);
-  const fadeInAnimator = makeOutlineFadeInAnimator({ animationTimeSeconds });
+  const animationDuration = duration / (coreAnimationCount * 2 + 2);
+  const fadeInAnimator = makeOutlineFadeInAnimator({
+    duration: animationDuration,
+    now,
+  });
   const coreAnimators = [];
   for (let i = 0; i < coreAnimationCount; i += 1) {
     const { shapes, anchors } = getRandomConfig();
@@ -19,21 +22,26 @@ function* makeFixedDurationAnimation({ durationSeconds, coreAnimationCount }) {
       const totalRotation = Math.random() < 0.5 ? -90 : 90;
       coreAnimators.push(
         makeRotationAnimator({
-          animationTimeSeconds: animationTimeSeconds * 2,
+          duration: animationDuration * 2,
+          now,
           totalRotation,
         })
       );
     } else {
       coreAnimators.push(
         makeShapeFadeAnimator({
-          animationTimeSeconds: animationTimeSeconds * 2,
+          duration: animationDuration * 2,
+          now,
           shapes,
           anchors,
         })
       );
     }
   }
-  const fadeOutAnimator = makeOutlineFadeOutAnimator({ animationTimeSeconds });
+  const fadeOutAnimator = makeOutlineFadeOutAnimator({
+    duration: animationDuration,
+    now,
+  });
   yield* concatanimators(fadeInAnimator, ...coreAnimators, fadeOutAnimator);
 }
 
