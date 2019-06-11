@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 (none)
 
+## [1.0.0] - 06-11-19
+
+### Changed
+
+- Allow specification of timing function for animations
+
 ## [0.1.1] - 06-05-19
 
 ### Fixed
@@ -16,5 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Export `drawCanvas`
 - Remove React from build file
 
-[unreleased]: https://github.com/generative-music/visualizer/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/generative-music/visualizer/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/generative-music/visualizer/compare/v0.1.1...v1.0.0
 [0.1.1]: https://github.com/generative-music/visualizer/compare/v0.1.0...v0.1.1
