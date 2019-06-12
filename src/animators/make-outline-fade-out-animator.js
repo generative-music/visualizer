@@ -3,7 +3,7 @@ function* makeOutlineFadeOutAnimator({ duration, now }) {
   for (
     let outlineOpacity = 1;
     outlineOpacity > 0;
-    outlineOpacity = Math.max(1 - (now() - startTime) / duration, 0)
+    outlineOpacity = 1 - (now() - startTime) / duration
   ) {
     yield {
       outlineOpacity,

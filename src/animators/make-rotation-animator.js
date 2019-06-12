@@ -3,8 +3,7 @@ function* makeRotationAnimator({ duration, now, totalRotation }) {
   for (
     let rotation = 0;
     Math.abs(rotation) < Math.abs(totalRotation);
-    rotation =
-      Math.min((now() - rotationStartTime) / duration, 1) * totalRotation
+    rotation = ((now() - rotationStartTime) / duration) * totalRotation
   ) {
     yield {
       rotation,

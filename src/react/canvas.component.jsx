@@ -2,12 +2,7 @@ import React, { useRef } from 'react';
 import propTypes from 'prop-types';
 
 const Canvas = ({ width, height, canvasRef = useRef(null) }) => (
-  <canvas
-    ref={canvasRef}
-    height={height}
-    width={width}
-    style={{ backgroundColor: 'black' }}
-  />
+  <canvas ref={canvasRef} height={height} width={width} />
 );
 
 Canvas.propTypes = {

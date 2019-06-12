@@ -3,7 +3,7 @@ function* makeShapeFadeAnimator({ duration, now, shapes, anchors }) {
   for (
     let opacity = 0;
     opacity < 1;
-    opacity = Math.min((now() - fadeInStartTime) / duration / 2, 1)
+    opacity = (now() - fadeInStartTime) / (duration / 2)
   ) {
     yield {
       shapes,
@@ -17,7 +17,7 @@ function* makeShapeFadeAnimator({ duration, now, shapes, anchors }) {
   for (
     let opacity = 1;
     opacity > 0;
-    opacity = Math.max(1 - (now() - fadeOutStartTime) / duration / 2, 0)
+    opacity = 1 - (now() - fadeOutStartTime) / (duration / 2)
   ) {
     yield {
       shapes,

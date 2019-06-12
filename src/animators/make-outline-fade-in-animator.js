@@ -3,7 +3,7 @@ function* makeOutlineFadeInAnimator({ duration, now }) {
   for (
     let outlineOpacity = 0;
     outlineOpacity < 1;
-    outlineOpacity = Math.min((now() - startTime) / duration, 1)
+    outlineOpacity = (now() - startTime) / duration
   ) {
     yield {
       outlineOpacity,
