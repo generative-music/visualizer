@@ -2,7 +2,7 @@ import getRandomConfig from '../get-random-config';
 import makeShapeFadeAnimator from './make-shape-fade-animator';
 import makeRotationAnimator from './make-rotation-animator';
 
-function* makeEndlessAnimator({ animationTimeSeconds }) {
+function* makeEndlessAnimator({ animationDuration, now }) {
   while (1) {
     const { shapes, anchors } = getRandomConfig();
     const rotate =
@@ -11,10 +11,15 @@ function* makeEndlessAnimator({ animationTimeSeconds }) {
     let animator;
     if (rotate) {
       const totalRotation = Math.random() < 0.5 ? -90 : 90;
-      animator = makeRotationAnimator({ animationTimeSeconds, totalRotation });
+      animator = makeRotationAnimator({
+        duration: animationDuration,
+        now,
+        totalRotation,
+      });
     } else {
       animator = makeShapeFadeAnimator({
-        animationTimeSeconds,
+        duration: animationDuration,
+        now,
         shapes,
         anchors,
       });

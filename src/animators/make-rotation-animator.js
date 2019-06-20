@@ -1,12 +1,9 @@
-function* makeRotationAnimator({ animationTimeSeconds, totalRotation }) {
-  const animationTimeMs = animationTimeSeconds * 1000;
-  const rotationStartTime = Date.now();
+function* makeRotationAnimator({ duration, now, totalRotation }) {
+  const rotationStartTime = now();
   for (
     let rotation = 0;
     Math.abs(rotation) < Math.abs(totalRotation);
-    rotation =
-      Math.min((Date.now() - rotationStartTime) / animationTimeMs, 1) *
-      totalRotation
+    rotation = ((now() - rotationStartTime) / duration) * totalRotation
   ) {
     yield {
       rotation,

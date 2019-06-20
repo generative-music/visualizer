@@ -1,6 +1,6 @@
 {
   "name": "@generative-music/visualizer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Simple canvas visualization used for Generative.fm",
   "main": "dist/main.js",
   "scripts": {
@@ -41,7 +41,9 @@
   "dependencies": {
     "color-convert": "^2.0.0",
     "nice-color-palettes": "^2.0.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.7.2"
+  },
+  "optionalDependencies": {
     "react": "^16.8.6"
   }
 }
