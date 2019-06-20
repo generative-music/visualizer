@@ -9,6 +9,24 @@ const getTrianglePath = (x1, y1, x2, y2, x3, y3) => {
   return path;
 };
 
+const maximizedFontSizes = new Map();
+const maximizeFontSize = (ctx, text, maxWidth) => {
+  const key = `#${text}#${maxWidth}#`;
+  if (maximizedFontSizes.has(key)) {
+    return maximizedFontSizes.get(key);
+  }
+  let fontSize = 100;
+  ctx.font = `${fontSize}px sans-serif`;
+  let textMetrics = ctx.measureText(text);
+  while (textMetrics.width > maxWidth) {
+    fontSize -= 1;
+    ctx.font = `${fontSize}px sans-serif`;
+    textMetrics = ctx.measureText(text);
+  }
+  maximizedFontSizes.set(key, fontSize);
+  return fontSize;
+};
+
 const drawCanvas = ({
   canvasEl,
   outlineOpacity = 1,
@@ -16,6 +34,9 @@ const drawCanvas = ({
   rotation = 0,
   shapes = [],
   anchors = [],
+  topText = '',
+  bottomText = '',
+  textPadding = 20,
 }) => {
   if (canvasEl) {
     const ctx = canvasEl.getContext('2d');
@@ -87,6 +108,29 @@ const drawCanvas = ({
       });
       return path;
     };
+
+    //draw text
+    ctx.fillStyle = 'white';
+    if (topText !== '') {
+      const fontSize = maximizeFontSize(ctx, topText, width - textPadding);
+      ctx.font = `${fontSize}px sans-serif`;
+      const textMetrics = ctx.measureText(topText);
+      ctx.fillText(
+        topText,
+        -textMetrics.width / 2,
+        -shortestDimLength / 2 - fontSize
+      );
+    }
+    if (bottomText !== '') {
+      const fontSize = maximizeFontSize(ctx, bottomText, width - textPadding);
+      ctx.font = `${fontSize}px sans-serif`;
+      const textMetrics = ctx.measureText(bottomText);
+      ctx.fillText(
+        bottomText,
+        -textMetrics.width / 2,
+        shortestDimLength / 2 + fontSize * 1.5
+      );
+    }
 
     ctx.rotate(rotation * (Math.PI / 180));
 

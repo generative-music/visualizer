@@ -1,12 +1,12 @@
 import drawCanvas from './draw-canvas';
 
-const animate = ({ canvasEl, animator }) => {
+const animate = ({ canvasEl, animator, topText, bottomText }) => {
   let raf;
 
   const renderFrameWithNextConfig = () => {
     const { done, value } = animator.next();
     if (!done) {
-      drawCanvas({ canvasEl, ...value });
+      drawCanvas({ canvasEl, topText, bottomText, ...value });
       raf = window.requestAnimationFrame(renderFrameWithNextConfig);
     }
   };
