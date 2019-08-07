@@ -51,7 +51,11 @@ const getRandomConfig = () => {
       }
     });
   }
-  return { anchors: Math.random() < 0.5 ? anchors : [], shapes };
+  return {
+    visualizationType: 'squareCut',
+    anchors: Math.random() < 0.5 ? anchors : [],
+    shapes,
+  };
 };
 
 export default getRandomConfig;

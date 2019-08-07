@@ -1,4 +1,5 @@
 import line from './line';
+import getSCoordinates from './get-s-coordinates';
 
 const COLORS = ['yellow', 'red', 'orange', 'cyan', 'magenta'];
 
@@ -8,9 +9,9 @@ const getLines = ({ width, height }) => {
   if (memoizedLines.has(key)) {
     return memoizedLines.get(key).slice(0);
   }
-  const offset = Math.min(width, height) / 5;
-  const widthCount = Math.floor((width - offset * 2) / offset);
-  const heightCount = Math.floor((height - offset * 2) / offset);
+
+  const { widthCount, heightCount } = getSCoordinates({ width, height });
+
   const lines = [];
   for (let sx = 0; sx <= widthCount; sx += 1) {
     lines.push(line(sx, 0, sx, heightCount));
@@ -49,6 +50,7 @@ const getLines = ({ width, height }) => {
 };
 
 const getRandomConfig = ({ width, height }) => ({
+  visualizationType: 'partialLattice',
   lines: getLines({ width, height })
     .filter(() => Math.random() < 0.3)
     .map(coordinates => ({
