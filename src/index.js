@@ -1,6 +1,6 @@
-import squareCut from './square-cut';
-import partialLattice from './partial-lattice';
+import visualizations from './visualizations';
 import react from './react';
+import animate from './animate';
 
-export { squareCut, partialLattice, react };
-export default { squareCut, partialLattice, react };
+export { visualizations, animate, react };
+export default { visualizations, animate, react };
