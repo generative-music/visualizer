@@ -1,6 +1,4 @@
-import drawCanvas from './draw-canvas';
-
-const animate = ({ canvasEl, animator }) => {
+const animate = ({ canvasEl, animator, drawCanvas }) => {
   let raf;
 
   const renderFrameWithNextConfig = () => {

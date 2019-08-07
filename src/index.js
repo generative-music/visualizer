@@ -1,8 +1,6 @@
-import * as animators from './animators/index';
-import * as react from './react/index';
-import animate from './animate';
-import getRandomConfig from './get-random-config';
-import drawCanvas from './draw-canvas';
+import squareCut from './square-cut';
+import partialLattice from './partial-lattice';
+import react from './react';
 
-export { animators, react, animate, getRandomConfig, drawCanvas };
-export default { animators, react, animate, getRandomConfig, drawCanvas };
+export { squareCut, partialLattice, react };
+export default { squareCut, partialLattice, react };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import Canvas from './canvas.component.jsx';
-import animate from '../animate';
+import animate from '../../animate';
 
 const Animated = ({ width, height, animator, canvasRef = useRef(null) }) => {
   useEffect(() => animate({ canvasEl: canvasRef.current, animator }), [
