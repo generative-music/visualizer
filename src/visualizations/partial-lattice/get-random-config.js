@@ -51,6 +51,7 @@ const getLines = ({ width, height }) => {
 
 const getRandomConfig = ({ width, height }) => ({
   visualizationType: 'partialLattice',
+  center: false,
   lines: getLines({ width, height })
     .filter(() => Math.random() < 0.3)
     .map(coordinates => ({
