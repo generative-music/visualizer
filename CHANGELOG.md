@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 (none)
 
+## [2.3.0] - 08-11-19
+
+### Added
+
+- Add `center` to partial lattice config
+
 ## [2.2.0] - 08-11-19
 
 ### Added
