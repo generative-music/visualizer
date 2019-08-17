@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 (none)
 
+## [2.3.3] - 08-17-19
+
+### Fixed
+
+- Add a minimum line width of 1 to partial lattice
+
 ## [2.3.2] - 08-17-19
 
 ### Fixed
@@ -60,7 +66,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Allow specification of timing function for animations
 
-[unreleased]: https://github.com/generative-music/visualizer/compare/v2.3.2...HEAD
+[unreleased]: https://github.com/generative-music/visualizer/compare/v2.3.3...HEAD
+[2.3.3]: https://github.com/generative-music/visualizer/compare/v2.3.2...v2.3.3
 [2.3.2]: https://github.com/generative-music/visualizer/compare/v2.3.1...v2.3.2
 [2.3.1]: https://github.com/generative-music/visualizer/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/generative-music/visualizer/compare/v2.2.0...v2.3.0

@@ -9,7 +9,7 @@ const drawCanvas = ({ canvasEl, lines = [], center = false }) => {
     const { width, height } = canvasEl;
     ctx.clearRect(0, 0, width, height);
     ctx.fillRect(0, 0, width, height);
-    ctx.lineWidth = Math.min(width, height) / 250;
+    ctx.lineWidth = Math.max(Math.min(width, height) / 250, 1);
 
     const offset = getOffset({ width, height });
     const { widthCount, heightCount } = getSCoordinates({ width, height });
