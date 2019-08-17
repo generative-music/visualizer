@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 (none)
 
+## [2.3.2] - 08-17-19
+
+### Fixed
+
+- Fix `react.Animated` component
+
 ## [2.3.1] - 08-17-19
 
 ### Fixed
@@ -54,8 +60,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Allow specification of timing function for animations
 
-[unreleased]: https://github.com/generative-music/visualizer/compare/v2.2.1...HEAD
-[2.2.1]: https://github.com/generative-music/visualizer/compare/v2.2.0...v2.2.1
+[unreleased]: https://github.com/generative-music/visualizer/compare/v2.3.2...HEAD
+[2.3.2]: https://github.com/generative-music/visualizer/compare/v2.3.1...v2.3.2
+[2.3.1]: https://github.com/generative-music/visualizer/compare/v2.3.0...v2.3.1
+[2.3.0]: https://github.com/generative-music/visualizer/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/generative-music/visualizer/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/generative-music/visualizer/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/generative-music/visualizer/compare/v1.0.0...v2.0.0
