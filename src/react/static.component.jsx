@@ -11,12 +11,14 @@ const Visualizer = ({
 }) => {
   useEffect(
     () => {
-      drawCanvas({
-        canvasEl: canvasRef.current,
-        ...config,
-      });
+      if (typeof drawCanvas === 'function') {
+        drawCanvas({
+          canvasEl: canvasRef.current,
+          ...config,
+        });
+      }
     },
-    [canvasRef, outlineOpacity, opacity, rotation, shapes, anchors]
+    [canvasRef, config, drawCanvas]
   );
 
   return <Canvas canvasRef={canvasRef} height={height} width={width} />;
