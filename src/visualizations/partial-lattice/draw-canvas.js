@@ -5,10 +5,8 @@ import centerLines from './center-lines';
 const drawCanvas = ({ canvasEl, lines = [], center = false }) => {
   if (canvasEl) {
     const ctx = canvasEl.getContext('2d');
-    ctx.fillStyle = 'black';
     const { width, height } = canvasEl;
     ctx.clearRect(0, 0, width, height);
-    ctx.fillRect(0, 0, width, height);
     ctx.lineWidth = Math.max(Math.min(width, height) / 250, 1);
 
     const offset = getOffset({ width, height });
