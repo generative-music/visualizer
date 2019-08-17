@@ -27,7 +27,7 @@ const Visualizer = ({
 Visualizer.propTypes = {
   width: propTypes.number.isRequired,
   height: propTypes.number.isRequired,
-  drawCanvas: propTypes.func.isRequired,
+  drawCanvas: propTypes.func,
   config: propTypes.object,
   canvasRef: propTypes.oneOfType([
     propTypes.func,
