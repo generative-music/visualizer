@@ -6,6 +6,7 @@ const drawCanvas = ({ canvasEl, lines = [], center = false }) => {
   if (canvasEl) {
     const ctx = canvasEl.getContext('2d');
     const { width, height } = canvasEl;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, width, height);
     ctx.lineWidth = Math.max(Math.min(width, height) / 250, 1);
 
